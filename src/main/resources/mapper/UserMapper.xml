@@ -7,10 +7,12 @@
         insert into user (name, birthday, email, graduate_school)
         values (#{name}, #{birthday}, #{email}, #{graduateSchool})
     </insert>
-
     <select id="getUsersLike" resultType="User" parameterType="string" databaseId="mysql">
         <bind name="name_pattern" value="'%' + _parameter + '%'" />
         select * from user
         where name like #{name_pattern}
     </select>
+    <update id="updateName" keyProperty="id" parameterType="User">
+        update user set name=#{name} where id=#{id}
+    </update>
 </mapper>

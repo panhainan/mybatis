@@ -6,6 +6,9 @@
     <properties resource="database.properties"/>
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="localCacheScope" value="SESSION"/>
+        <!--<setting name="cacheEnabled" value="true"/>-->
+        <setting name="logImpl" value="SLF4J"/>
     </settings>
     <typeAliases>
         <package name="site.sixteen.entity"/>
@@ -27,6 +30,6 @@
         <property name="MySQL" value="mysql"/>
     </databaseIdProvider>
     <mappers>
-        <package name="site.sixteen.dao"/>
+        <mapper resource="mapper/UserMapper.xml"/>
     </mappers>
 </configuration>

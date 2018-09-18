@@ -1,6 +1,7 @@
 package site.sixteen.dao;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import site.sixteen.entity.User;
 
@@ -45,4 +46,6 @@ public interface UserDAO {
      */
     @Delete("delete from user where id=#{id}")
     Integer remove(int id);
+
+    Integer updateName(@Param("name") String name,@Param("id") Integer id);
 }

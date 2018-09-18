@@ -18,12 +18,13 @@
         有两个必要属性name和class。
         name指定appender名称，
         class指定appender的实现类。 -->
-    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <!-- 对日志进行格式化。 -->
         <encoder>
             <pattern>
                 %d{yyyy-MM-dd HH:mm:ss}|%thread|%-5level|%logger{36} | %msg%n
             </pattern>
+            <charset class="java.nio.charset.Charset">UTF-8</charset>
         </encoder>
     </appender>
 
@@ -60,8 +61,8 @@
         level:设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，不能设置为INHERITED或者同义词NULL。默认是DEBUG。
         <root>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个loger。 -->
     <root>
-        <level value="INFO"/>
-        <appender-ref ref="stdout"/>
+        <level value="DEBUG"/>
+        <appender-ref ref="console"/>
         <appender-ref ref="file"/>
     </root>
 
